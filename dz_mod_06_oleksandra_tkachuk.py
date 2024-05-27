@@ -57,8 +57,8 @@ X_train_cat=data_cat[:-365]
 y_train=X_train_cat['RainTomorrow']
 y_test=X_test_cat['RainTomorrow']
 
-X_test_cat.drop('RainTomorrow',axis=1)
-X_train_cat.drop('RainTomorrow',axis=1)
+X_test_cat=X_test_cat.drop('RainTomorrow',axis=1)
+X_train_cat=X_train_cat.drop('RainTomorrow',axis=1)
 
 # restore missed data to mean value for numerical data
 num_imputer=SimpleImputer().set_output(transform='pandas')
@@ -127,7 +127,7 @@ plt.show()
 # get accuracy metrics using classification_report method
 print(classification_report(y_test, pred))
 
-# Conclusion, we obtained model with 100% predictions accuracy
+# Conclusion, we have build LogisticRegression model for Rain prediction and obtained results with high accuracy 93%, as well as all other accuracy metrics that are in range from 95%-97%. These results are much better as results in our practical lesson model. We can make a conclusion that splitting our dataset on train and test subsets using last year as conditional "future" period allows us to improve our model prediction significantly in comparison with just usual train_test_split method.  
 
 
 
